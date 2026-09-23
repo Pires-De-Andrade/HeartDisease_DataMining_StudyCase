@@ -1,0 +1,21 @@
+﻿variavel;tipo;n_total;ausentes;pct_ausentes;nao_numericos;validos;min;max;media;mediana;desvio;zeros;negativos;fora_faixa_clinica;categorias_distintas;categoria_moda;freq_moda;nao_parseaveis;datas_futuras;ano_min;ano_max
+Peso;quantitativa;12873;318;2,47;0,0;12555,0;-40,0;157,0;16,614;12,8;16,98;2609,0;1,0;2612,0;;;;;;;
+Altura;quantitativa;12873;0;0,0;0,0;12873,0;0,0;198,0;66,111;69,0;56,028;4460,0;0,0;4466,0;;;;;;;
+IMC;quantitativa;12873;4727;36,72;0,0;8146,0;0,0;848,0;17,455;17,0;15,008;109,0;0,0;134,0;;;;;;;
+IDADE;quantitativa;12873;1496;11,62;0,0;11377,0;-113,18;71,81;4,857;3,96;8,83;184,0;122,0;216,0;;;;;;;
+PA SISTOLICA;quantitativa;12873;7730;60,05;0,0;5143,0;60,0;990,0;101,799;100,0;18,901;0,0;0,0;2,0;;;;;;;
+PA DIASTOLICA;quantitativa;12873;7740;60,13;0,0;5133,0;6,0;120,0;62,647;60,0;9,092;0,0;0,0;1,0;;;;;;;
+FC;quantitativa;12873;1868;14,51;16,0;10989,0;8,0;9288,0;96,636;92,0;92,706;0,0;0,0;16,0;;;;;;;
+PULSOS;qualitativa;12873;1194;9,28;;;;;;;;;;;7,0;Normais;11531,0;;;;
+PPA;qualitativa;12873;217;1,69;;;;;;;;;;;9,0;Normal;1790,0;;;;
+NORMAL X ANORMAL;qualitativa;12873;1168;9,07;;;;;;;;;;;4,0;Normal;6744,0;;;;
+B2;qualitativa;12873;1178;9,15;;;;;;;;;;;5,0;Normal;11098,0;;;;
+SOPRO;qualitativa;12873;1167;9,07;;;;;;;;;;;7,0;ausente;7275,0;;;;
+HDA 1;qualitativa;12873;4270;33,17;;;;;;;;;;;8,0;Assintomático;6561,0;;;;
+HDA2;qualitativa;12873;12466;96,84;;;;;;;;;;;8,0;Dispneia;83,0;;;;
+SEXO;qualitativa;12873;4;0,03;;;;;;;;;;;6,0;M;6065,0;;;;
+MOTIVO1;qualitativa;12873;1055;8,2;;;;;;;;;;;5,0;5 - Parecer cardiológico;5352,0;;;;
+MOTIVO2;qualitativa;12873;3496;27,16;;;;;;;;;;;16,0;5 - Cirurgia;2940,0;;;;
+Convenio;qualitativa (alta cardinalidade);12873;4108;31,91;;;;;;;;;;;374,0;GS;2094,0;;;;
+Atendimento;temporal;12873;983;7,64;;;;;;;;;;;;;;312,0;2,0;1990,0;2066,0
+DN;temporal;12873;1376;10,69;;;;;;;;;;;;;;244,0;12,0;1969,0;2068,0

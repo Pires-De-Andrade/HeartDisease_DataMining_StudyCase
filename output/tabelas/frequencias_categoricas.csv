@@ -1,0 +1,461 @@
+﻿variavel;categoria;frequencia;percentual
+PULSOS;Normais;11531;89,58
+PULSOS;(ausente);1194;9,28
+PULSOS;Amplos;52;0,4
+PULSOS;Femorais diminuidos;39;0,3
+PULSOS;Outro;36;0,28
+PULSOS;Diminuídos ;18;0,14
+PULSOS;NORMAIS;2;0,02
+PULSOS;AMPLOS;1;0,01
+PPA;Não Calculado;9081;70,54
+PPA;Normal;1790;13,91
+PPA;#VALUE!;1496;11,62
+PPA;(ausente);217;1,69
+PPA;Pre-Hipertensão PAD;73;0,57
+PPA;HAS-2 PAS;73;0,57
+PPA;Pre-Hipertensão PAS;48;0,37
+PPA;HAS-1 PAS;48;0,37
+PPA;HAS-1 PAD;26;0,2
+PPA;HAS-2 PAD;21;0,16
+NORMAL X ANORMAL;Normal;6744;52,39
+NORMAL X ANORMAL;Anormal;4959;38,52
+NORMAL X ANORMAL;(ausente);1168;9,07
+NORMAL X ANORMAL;anormal;1;0,01
+NORMAL X ANORMAL;Normais;1;0,01
+B2;Normal;11098;86,21
+B2;(ausente);1178;9,15
+B2;Hiperfonética;295;2,29
+B2;Desdob fixo;149;1,16
+B2;Única;77;0,6
+B2;Outro;76;0,59
+SOPRO;ausente;7275;56,51
+SOPRO;Sistólico;3648;28,34
+SOPRO;(ausente);1167;9,07
+SOPRO;sistólico;723;5,62
+SOPRO;contínuo;28;0,22
+SOPRO;Contínuo;20;0,16
+SOPRO;diastólico;9;0,07
+SOPRO;Sistolico e diastólico;3;0,02
+HDA 1;Assintomático;6561;50,97
+HDA 1;(ausente);4270;33,17
+HDA 1;Dispneia;541;4,2
+HDA 1;Dor precordial;508;3,95
+HDA 1;Palpitacao;365;2,84
+HDA 1;Cianose;260;2,02
+HDA 1;Desmaio/tontura;157;1,22
+HDA 1;Outro;124;0,96
+HDA 1;Ganho de peso;87;0,68
+HDA2;(ausente);12466;96,84
+HDA2;Dispneia;83;0,64
+HDA2;Palpitacao;83;0,64
+HDA2;Dor precordial;65;0,5
+HDA2;Cianose;65;0,5
+HDA2;Desmaio/tontura;50;0,39
+HDA2;Outro;41;0,32
+HDA2;Ganho de peso;19;0,15
+HDA2;Assintomático;1;0,01
+SEXO;M;6065;47,11
+SEXO;F;4477;34,78
+SEXO;Indeterminado;1417;11,01
+SEXO;Masculino;584;4,54
+SEXO;Feminino;247;1,92
+SEXO;masculino;79;0,61
+SEXO;(ausente);4;0,03
+MOTIVO1;5 - Parecer cardiológico;5352;41,58
+MOTIVO1;6 - Suspeita de cardiopatia;4285;33,29
+MOTIVO1;1 - Cardiopatia já estabelecida;1158;9,0
+MOTIVO1;(ausente);1055;8,2
+MOTIVO1;2 - Check-up;701;5,45
+MOTIVO1;7 - Outro;322;2,5
+MOTIVO2;(ausente);3496;27,16
+MOTIVO2;5 - Cirurgia;2940;22,84
+MOTIVO2;6 - Sopro;2349;18,25
+MOTIVO2;1 - Cardiopatia congenica;1041;8,09
+MOTIVO2;Outro;824;6,4
+MOTIVO2;5 - Atividade física;652;5,06
+MOTIVO2;6 - Palpitação/taquicardia/arritmia;415;3,22
+MOTIVO2;6 - Dor precordial;392;3,05
+MOTIVO2;6 - HAS/dislipidemia/obesidade;240;1,86
+MOTIVO2;6 - Dispnéia;226;1,76
+MOTIVO2;6 - Cianose;145;1,13
+MOTIVO2;1 - Cardiopatia adquirida;92;0,71
+MOTIVO2;6 - Cardiopatia na familia;35;0,27
+MOTIVO2;5 - Uso de cisaprida;9;0,07
+MOTIVO2;6 - Cansaço;7;0,05
+MOTIVO2;6 - Alterações de pulso/perfusão;5;0,04
+MOTIVO2;6 - Cianose e dispnéia;5;0,04
+Convenio;(ausente);4108;31,91
+Convenio;GS;2094;16,27
+Convenio;UR;1479;11,49
+Convenio;SB;450;3,5
+Convenio;GRUPO;408;3,17
+Convenio;CAMED;336;2,61
+Convenio;SA;242;1,88
+Convenio;REAL S.;235;1,83
+Convenio;Camed;227;1,76
+Convenio;Medial;189;1,47
+Convenio;MEDIAL;176;1,37
+Convenio;UG;120;0,93
+Convenio;SULA;112;0,87
+Convenio;NORCLIN.;108;0,84
+Convenio;SEMEPE;95;0,74
+Convenio;IDEAL;94;0,73
+Convenio;CC;93;0,72
+Convenio;FUSEX;79;0,61
+Convenio;AS;75;0,58
+Convenio;Real;74;0,57
+Convenio;Ideal;71;0,55
+Convenio;SUS;64;0,5
+Convenio;Grupo;58;0,45
+Convenio;Norclínicas;56;0,44
+Convenio;Fusex;56;0,44
+Convenio;Sul America;53;0,41
+Convenio;SAME;52;0,4
+Convenio;Particular;42;0,33
+Convenio;Norclinicas;41;0,32
+Convenio;U.Recife;39;0,3
+Convenio;Mediservice;39;0,3
+Convenio;CASSI;37;0,29
+Convenio;Fachesf;37;0,29
+Convenio;Semepe;35;0,27
+Convenio;Cassi;35;0,27
+Convenio;NORCLIN;32;0,25
+Convenio;FUNCEF;30;0,23
+Convenio;Funcef;27;0,21
+Convenio;Sul Am;27;0,21
+Convenio;MEDISE;22;0,17
+Convenio;MMS;22;0,17
+Convenio;Assefaz;21;0,16
+Convenio;Norclínica;21;0,16
+Convenio;FISCO;21;0,16
+Convenio;Real S.;20;0,16
+Convenio;Tabela;20;0,16
+Convenio;S. Recife;20;0,16
+Convenio;Celpos;19;0,15
+Convenio;NORC;18;0,14
+Convenio;ST.HELENA;18;0,14
+Convenio;ASL;18;0,14
+Convenio;GC;17;0,13
+Convenio;Saude Recife;17;0,13
+Convenio;MEDISERV.;16;0,12
+Convenio;Sta Helena;16;0,12
+Convenio;Part;16;0,12
+Convenio;Norclinica;16;0,12
+Convenio;América S.;16;0,12
+Convenio;AGF;15;0,12
+Convenio;S.America;15;0,12
+Convenio;CT;14;0,11
+Convenio;TAB;14;0,11
+Convenio;Círculo;14;0,11
+Convenio;Unimed;14;0,11
+Convenio;FACHESF;13;0,1
+Convenio;Santa Helena;13;0,1
+Convenio;Medial S.;12;0,09
+Convenio;Same;12;0,09
+Convenio;CASS;12;0,09
+Convenio;Norcl;12;0,09
+Convenio;NORCL;12;0,09
+Convenio;REAL;12;0,09
+Convenio;Unimed Rec;12;0,09
+Convenio;IDEAL S.;12;0,09
+Convenio;NORCLI;12;0,09
+Convenio;America;12;0,09
+Convenio;Medservice;11;0,09
+Convenio;Norclin;10;0,08
+Convenio;Santa Clara;10;0,08
+Convenio;Sulam;10;0,08
+Convenio;Fisco;10;0,08
+Convenio;Circulo;10;0,08
+Convenio;CELPOS;9;0,07
+Convenio;CELPE;9;0,07
+Convenio;PART;9;0,07
+Convenio;América;9;0,07
+Convenio;S Recife;8;0,06
+Convenio;Unibanco;7;0,05
+Convenio;CAMPE;7;0,05
+Convenio;ASSEFAZ;7;0,05
+Convenio;Real Saúde;7;0,05
+Convenio;CHESF;7;0,05
+Convenio;Aeronáutica;6;0,05
+Convenio;UNIB.;6;0,05
+Convenio;círculo;6;0,05
+Convenio;GOLDEN;6;0,05
+Convenio;Part.;6;0,05
+Convenio;FACHES;6;0,05
+Convenio;Notredame;6;0,05
+Convenio;Gama;6;0,05
+Convenio;OAB;6;0,05
+Convenio;GAMA;5;0,04
+Convenio;AMEP;5;0,04
+Convenio;Real Saude;5;0,04
+Convenio;Aeronautica;5;0,04
+Convenio;AERON.;5;0,04
+Convenio;Comsaude;5;0,04
+Convenio;Mediserv;5;0,04
+Convenio;Cortesia;5;0,04
+Convenio;Ideal S.;5;0,04
+Convenio;VIVA;5;0,04
+Convenio;America S.;5;0,04
+Convenio;Tab;5;0,04
+Convenio;UNIMED;5;0,04
+Convenio;SulAm;4;0,03
+Convenio;CORTESIA;4;0,03
+Convenio;SH;4;0,03
+Convenio;U.RECIFE;4;0,03
+Convenio;PETROB.;4;0,03
+Convenio;PARTIC;4;0,03
+Convenio;SulAmerica;4;0,03
+Convenio;S.B.;4;0,03
+Convenio;Sta. Helena;4;0,03
+Convenio;cc;4;0,03
+Convenio;MEDSERV;4;0,03
+Convenio;P;4;0,03
+Convenio;Sul América;4;0,03
+Convenio;Saude Bradesco;4;0,03
+Convenio;Sta Clara;4;0,03
+Convenio;Gs;4;0,03
+Convenio;Bluelife;3;0,02
+Convenio;Notre Dame;3;0,02
+Convenio;Saude Caixa;3;0,02
+Convenio;Ur;3;0,02
+Convenio;ASSEFA;3;0,02
+Convenio;AERON;3;0,02
+Convenio;camed;3;0,02
+Convenio;AMIL;3;0,02
+Convenio;MEDSER;3;0,02
+Convenio;S.A;3;0,02
+Convenio;BL;3;0,02
+Convenio;AMB;3;0,02
+Convenio;Norcli;3;0,02
+Convenio;Petrobras;3;0,02
+Convenio;MEDISERV;3;0,02
+Convenio;MEDIS;3;0,02
+Convenio;S.A.;3;0,02
+Convenio;Partic;3;0,02
+Convenio;BLUELI;3;0,02
+Convenio;Medserv;3;0,02
+Convenio;CÍRCULO;3;0,02
+Convenio;Sta. Clara;3;0,02
+Convenio;ASSEF;3;0,02
+Convenio;TABELA;3;0,02
+Convenio;Saúde Recife;3;0,02
+Convenio;Embratel;3;0,02
+Convenio;Correios;3;0,02
+Convenio;part;3;0,02
+Convenio;Bradesco;2;0,02
+Convenio;Unimed Recife;2;0,02
+Convenio;CIRCULO;2;0,02
+Convenio;Sula;2;0,02
+Convenio;Shelena;2;0,02
+Convenio;S. RECIFE;2;0,02
+Convenio;Norclín;2;0,02
+Convenio;S.AMER.;2;0,02
+Convenio;sus;2;0,02
+Convenio;Saude Excelsior;2;0,02
+Convenio;S. Caixa;2;0,02
+Convenio;medial;2;0,02
+Convenio;Medser;2;0,02
+Convenio;BLSERV;2;0,02
+Convenio;Aero;2;0,02
+Convenio;Fisco S.;2;0,02
+Convenio;UNIMED RE;2;0,02
+Convenio;PART.;2;0,02
+Convenio;REAL S;2;0,02
+Convenio;PARTICULAR;2;0,02
+Convenio;unimed;2;0,02
+Convenio;Golden;2;0,02
+Convenio;cort;2;0,02
+Convenio;cortesia;2;0,02
+Convenio;PETROB;2;0,02
+Convenio;Amepe;2;0,02
+Convenio;Saúde Caixa;2;0,02
+Convenio;UNIMED R;2;0,02
+Convenio;Chesf;2;0,02
+Convenio;sb;2;0,02
+Convenio;particular;2;0,02
+Convenio;Norc;2;0,02
+Convenio;Sulamerica;2;0,02
+Convenio;EMBRATEL;2;0,02
+Convenio;Petrobrás;2;0,02
+Convenio;Viva;2;0,02
+Convenio;Petroflex;2;0,02
+Convenio;PLAN ASS.;2;0,02
+Convenio;exercito;1;0,01
+Convenio;U.GUARAP;1;0,01
+Convenio;aCmed;1;0,01
+Convenio;Norlcínicas;1;0,01
+Convenio;TABEL;1;0,01
+Convenio;UNIM;1;0,01
+Convenio;Corr;1;0,01
+Convenio;EMBRA;1;0,01
+Convenio;S.HELEN;1;0,01
+Convenio;gs;1;0,01
+Convenio;U.Guararape;1;0,01
+Convenio;norclínicas;1;0,01
+Convenio;Norcl.;1;0,01
+Convenio;MED;1;0,01
+Convenio;Mediser;1;0,01
+Convenio;PETRO;1;0,01
+Convenio;norclín;1;0,01
+Convenio;Caixa;1;0,01
+Convenio;CISAM;1;0,01
+Convenio;sula;1;0,01
+Convenio;Excelsior/RHP;1;0,01
+Convenio;Unimed Petrolina;1;0,01
+Convenio;SHELEN;1;0,01
+Convenio;STHELENA;1;0,01
+Convenio;PM;1;0,01
+Convenio;Santa Lucia;1;0,01
+Convenio;AMERICA;1;0,01
+Convenio;CircC;1;0,01
+Convenio;35971;1;0,01
+Convenio;S recife;1;0,01
+Convenio;SEMEP;1;0,01
+Convenio;Blue life;1;0,01
+Convenio;Saúde Rec;1;0,01
+Convenio;U.G.;1;0,01
+Convenio;Fachaesf;1;0,01
+Convenio;36170;1;0,01
+Convenio;S A;1;0,01
+Convenio;fusex;1;0,01
+Convenio;17999;1;0,01
+Convenio;AERO;1;0,01
+Convenio;TAB.;1;0,01
+Convenio;Fiscosaude;1;0,01
+Convenio;UNIBAN;1;0,01
+Convenio;Real S;1;0,01
+Convenio;STAHER;1;0,01
+Convenio;real;1;0,01
+Convenio;Campe;1;0,01
+Convenio;U.Guararap.;1;0,01
+Convenio;Cassi + tab;1;0,01
+Convenio;America Saude;1;0,01
+Convenio;PETROF;1;0,01
+Convenio;PETROBRAS;1;0,01
+Convenio;C Cor;1;0,01
+Convenio;Sus;1;0,01
+Convenio;Patrt;1;0,01
+Convenio;Saude recife;1;0,01
+Convenio;NORCLINC;1;0,01
+Convenio;Saúde Rec.;1;0,01
+Convenio;Unimed Gua;1;0,01
+Convenio;Plan Assiste;1;0,01
+Convenio;Ucaruaru;1;0,01
+Convenio;Odeal S.;1;0,01
+Convenio;TBA;1;0,01
+Convenio;MEDESE;1;0,01
+Convenio;Un.Recife;1;0,01
+Convenio;U. Recife;1;0,01
+Convenio;caixa;1;0,01
+Convenio;Aeron;1;0,01
+Convenio;S.Helena;1;0,01
+Convenio;NORCLINIC;1;0,01
+Convenio;38001;1;0,01
+Convenio;tabela;1;0,01
+Convenio;Medise;1;0,01
+Convenio;Santa Helen;1;0,01
+Convenio;CAIXA;1;0,01
+Convenio;URecife;1;0,01
+Convenio;SEXCEL;1;0,01
+Convenio;Medserv.;1;0,01
+Convenio;Norclínia;1;0,01
+Convenio;BlueLife;1;0,01
+Convenio;Unimed R.;1;0,01
+Convenio;U.Guararapes;1;0,01
+Convenio;SULAM;1;0,01
+Convenio;113205;1;0,01
+Convenio;Unim.Recife;1;0,01
+Convenio;saude recife;1;0,01
+Convenio;Norcínicas;1;0,01
+Convenio;Embrat;1;0,01
+Convenio;Tabel;1;0,01
+Convenio;S Bradesco;1;0,01
+Convenio;grupo;1;0,01
+Convenio;SUL AMER.;1;0,01
+Convenio;Alians;1;0,01
+Convenio;SaudeRecife;1;0,01
+Convenio;S. Real;1;0,01
+Convenio;Grupo Saúde;1;0,01
+Convenio;REALS.;1;0,01
+Convenio;Media S.;1;0,01
+Convenio;norclin;1;0,01
+Convenio;sta Helen;1;0,01
+Convenio;38412;1;0,01
+Convenio;as;1;0,01
+Convenio;39561;1;0,01
+Convenio;América Saude;1;0,01
+Convenio;Blue Life;1;0,01
+Convenio;MEDISER;1;0,01
+Convenio;U G;1;0,01
+Convenio;america;1;0,01
+Convenio;Fachesp;1;0,01
+Convenio;PARTICL;1;0,01
+Convenio;S.AMER;1;0,01
+Convenio;Sta Lucia;1;0,01
+Convenio;aeronautica;1;0,01
+Convenio;38706;1;0,01
+Convenio;Plan A;1;0,01
+Convenio;Amériaca S.;1;0,01
+Convenio;UR/Maceió;1;0,01
+Convenio;norcl;1;0,01
+Convenio;MEDESV;1;0,01
+Convenio;SUS/TMO;1;0,01
+Convenio;fachesf;1;0,01
+Convenio;Santa  Helena;1;0,01
+Convenio;Facjesf;1;0,01
+Convenio;SAUDE RE;1;0,01
+Convenio;Mediservic;1;0,01
+Convenio;BS;1;0,01
+Convenio;Tab/SB;1;0,01
+Convenio;Amep Camp;1;0,01
+Convenio;Petrof;1;0,01
+Convenio;REEMB;1;0,01
+Convenio;Particulra;1;0,01
+Convenio;tab;1;0,01
+Convenio;Reemb;1;0,01
+Convenio;Amil;1;0,01
+Convenio;RE;1;0,01
+Convenio;sudene;1;0,01
+Convenio;Ct;1;0,01
+Convenio;Gama S.;1;0,01
+Convenio;ST Helena;1;0,01
+Convenio;Círculo Cor;1;0,01
+Convenio;CORREIOS;1;0,01
+Convenio;MERSEV;1;0,01
+Convenio;IDEAL S;1;0,01
+Convenio;SR;1;0,01
+Convenio;Saude Rec;1;0,01
+Convenio;REAL. S.;1;0,01
+Convenio;Saude Bardesco;1;0,01
+Convenio;Banco Central;1;0,01
+Convenio;S. CX;1;0,01
+Convenio;OAB Saúde;1;0,01
+Convenio;SANT H;1;0,01
+Convenio;Petrob;1;0,01
+Convenio;SBPREF;1;0,01
+Convenio;Coreios;1;0,01
+Convenio;P.UCMF;1;0,01
+Convenio;Ideal Saude;1;0,01
+Convenio;norclinicas;1;0,01
+Convenio;SUL AM;1;0,01
+Convenio;Sulamérica;1;0,01
+Convenio;Excelsior/ RHP;1;0,01
+Convenio;U. Guara;1;0,01
+Convenio;Com Saude;1;0,01
+Convenio;FISCOS;1;0,01
+Convenio;U.recife;1;0,01
+Convenio;AGF S.;1;0,01
+Convenio;38447;1;0,01
+Convenio;Gold;1;0,01
+Convenio;FUNSEF;1;0,01
+Convenio;America  S.;1;0,01
+Convenio;S.Recife;1;0,01
+Convenio;ideal;1;0,01
+Convenio;Ideal Saúde;1;0,01
+Convenio;Hospital Residência;1;0,01
+Convenio;Excelsior;1;0,01
+Convenio;Real saúde;1;0,01
+Convenio;C. Coração;1;0,01
+Convenio;Jorge de Medeiros;1;0,01
+Convenio;Fisco Saude;1;0,01
+Convenio;S.Am;1;0,01
