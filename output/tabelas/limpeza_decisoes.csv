@@ -1,0 +1,60 @@
+﻿variavel;problema;tratamento;n_afetados
+NORMAL X ANORMAL;registro sem variável-alvo;registro removido (não serve para treino nem avaliação);1168
+(registro);linha idêntica a outra em todas as colunas exceto ID;"mantida a primeira ocorrência; cópias removidas";235
+NORMAL X ANORMAL;rótulo fora do padrão ('anormal', 'Normais');unificado em Normal/Anormal;2
+Atendimento;número serial do Excel no lugar da data;convertido para data (origem 30/12/1899);304
+Atendimento;texto livre ou data malformada;NaN (data irrecuperável);0
+Atendimento;ano > 2010 (fora do período de coleta);NaN;2
+DN;número serial do Excel no lugar da data;convertido para data (origem 30/12/1899);121
+DN;texto livre ou data malformada;NaN (data irrecuperável);116
+DN;ano > 2010 (século trocado na leitura de 2 dígitos);século corrigido (−100 anos);10
+IDADE;idade negativa (nascimento posterior ao atendimento);"NaN na idade; datas e registro mantidos";70
+IDADE;IDADE informada sistematicamente acima da calculada pelas datas;recalculada como (Atendimento − DN) / 365,25;9493
+IDADE;IDADE informada sem as duas datas válidas;NaN (fórmula de origem incorreta, valor não confiável);48
+IDADE;idade ≥ 20 anos (população do estudo: 0 a 19);registro removido;62
+Peso;zero usado como 'não medido';NaN;1649
+Peso;negativo ou fora da faixa plausível [0.5, 150];NaN;3
+Altura;zero usado como 'não medido';NaN;3450
+Altura;negativo ou fora da faixa plausível [30, 200];NaN;6
+IDADE;peso e altura coerentes entre si, mas implausíveis para a idade (OMS);"NaN na idade (erro nas datas); peso e altura mantidos";85
+Peso;"implausível para idade e sexo (OMS: z de peso/idade < −6 ou > +5; abaixo de 1 ano só o limite superior, por causa de prematuros)";NaN;57
+Altura;"implausível para idade e sexo (OMS: z de altura/idade < −6 ou > +6; abaixo de 1 ano só o limite superior, por causa de prematuros)";NaN;73
+IMC;IMC informado arredondado para inteiro ou divergente;recalculado como peso / altura² (m);7283
+IMC;IMC informado com peso ou altura inválidos;NaN (não verificável);198
+IMC;IMC recalculado fora da faixa plausível [8, 45];NaN;6
+IMC;implausível para idade e sexo (OMS: z de IMC/idade < −5 ou > +5);NaN (peso e altura mantidos: não há como saber qual está errado);35
+PA SISTOLICA;fora da faixa plausível [50, 200];NaN;2
+PA DIASTOLICA;fora da faixa plausível [20, 150];NaN;1
+PA SISTOLICA/PA DIASTOLICA;diastólica maior ou igual à sistólica;NaN nas duas;1
+FC;FC digitada como intervalo ('80-90', '156 a 168');substituída pelo ponto médio;16
+FC;texto não numérico restante;NaN;0
+FC;fora da faixa plausível [40, 220];NaN;17
+PPA;'#VALUE!': erro de fórmula do Excel (ocorre onde falta IDADE);NaN (não é uma classe de pressão);577
+PPA;'Não Calculado': classe não calculada;NaN (não é uma classe de pressão);8596
+SEXO;rótulo por extenso ('Masculino', 'masculino', 'Feminino');unificado em M/F;871
+SEXO;'Indeterminado' (sexo não informado);NaN;523
+PULSOS;variantes de grafia (caixa, acento, pontuação);unificadas na grafia mais frequente (7 → 5 categorias);3
+SOPRO;variantes de grafia (caixa, acento, pontuação);unificadas na grafia mais frequente (7 → 5 categorias);731
+Convenio;variantes de grafia (caixa, acento, pontuação);unificadas na grafia mais frequente (364 → 236 categorias);1035
+(registro);linhas que só diferiam na grafia (ex.: 'sistólico' × 'Sistólico');"mantida a primeira ocorrência; cópias removidas";7
+ID;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";0
+Peso;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";2015
+Altura;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";3527
+IMC;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";3946
+Atendimento;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";87
+DN;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";574
+IDADE;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";777
+Convenio;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";3142
+PULSOS;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";36
+PA SISTOLICA;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";6363
+PA DIASTOLICA;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";6372
+PPA;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";9330
+NORMAL X ANORMAL;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";0
+B2;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";19
+SOPRO;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";11
+FC;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";702
+HDA 1;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";2955
+HDA2;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";11007
+SEXO;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";524
+MOTIVO1;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";137
+MOTIVO2;valor ausente na base limpa (bruto + anulado acima);"mantido como NaN; imputação fica na transformação, ajustada só no treino";2520

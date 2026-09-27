@@ -1,0 +1,75 @@
+﻿variavel;problema;n;origem;referencia_univariada;valor_univariada;confere;evidencia
+ID;identificador duplicado;0;inspecao;;;—;mesma checagem impressa pelo 01_analise_univariada.py
+NORMAL X ANORMAL;registro sem variável-alvo;1168;univariada;resumo_univariado.csv [NORMAL X ANORMAL · ausentes];1168;sim;
+(registro);linha idêntica a outra em todas as 20 colunas (difere só no ID);987;consistencia;;;—;"111 grupos; maior grupo com 739 cópias, preenchido apenas em Peso, Altura, PPA, SEXO"
+(registro);duplicatas restantes após remover registros sem alvo;235;consistencia;;;—;
+Peso;valor ausente;318;univariada;resumo_univariado.csv [Peso · ausentes];318;sim;
+Peso;zero usado como 'não medido';2609;univariada;resumo_univariado.csv [Peso · zeros];2609;sim;
+Peso;valor negativo;1;univariada;resumo_univariado.csv [Peso · negativos];1;sim;-40.0
+Peso;fora da faixa plausível [0.5–150] (inclui zeros e negativos);2612;univariada;resumo_univariado.csv [Peso · fora_faixa_clinica];2612;sim;exemplos além de zero/negativos: 0.3, 157.0
+Altura;valor ausente;0;univariada;resumo_univariado.csv [Altura · ausentes];0;sim;
+Altura;zero usado como 'não medido';4460;univariada;resumo_univariado.csv [Altura · zeros];4460;sim;
+Altura;fora da faixa plausível [30–200] (inclui zeros e negativos);4466;univariada;resumo_univariado.csv [Altura · fora_faixa_clinica];4466;sim;exemplos além de zero/negativos: 10, 11, 12, 15, 16, 19
+IMC;valor ausente;4727;univariada;resumo_univariado.csv [IMC · ausentes];4727;sim;
+IMC;zero usado como 'não medido';109;univariada;resumo_univariado.csv [IMC · zeros];109;sim;
+IMC;fora da faixa plausível [8–45] (inclui zeros e negativos);134;univariada;resumo_univariado.csv [IMC · fora_faixa_clinica];134;sim;exemplos além de zero/negativos: 2.0, 4.0, 5.0, 6.0, 7.0, 46.0, 51.0, 56.0
+IDADE;valor ausente;1496;univariada;resumo_univariado.csv [IDADE · ausentes];1496;sim;
+IDADE;valor negativo;122;univariada;resumo_univariado.csv [IDADE · negativos];122;sim;-4.05, -106.66, -0.18, -0.03, -112.09, -105.04, -100.83, -9.94
+IDADE;fora da faixa plausível [0–19] (inclui zeros e negativos);216;univariada;resumo_univariado.csv [IDADE · fora_faixa_clinica];216;sim;exemplos além de zero/negativos: 19.01, 19.04, 19.05, 19.07, 19.36, 19.42, 19.44, 19.45
+PA SISTOLICA;valor ausente;7730;univariada;resumo_univariado.csv [PA SISTOLICA · ausentes];7730;sim;
+PA SISTOLICA;fora da faixa plausível [50–200] (inclui zeros e negativos);2;univariada;resumo_univariado.csv [PA SISTOLICA · fora_faixa_clinica];2;sim;exemplos além de zero/negativos: 700.0, 990.0
+PA DIASTOLICA;valor ausente;7740;univariada;resumo_univariado.csv [PA DIASTOLICA · ausentes];7740;sim;
+PA DIASTOLICA;fora da faixa plausível [20–150] (inclui zeros e negativos);1;univariada;resumo_univariado.csv [PA DIASTOLICA · fora_faixa_clinica];1;sim;exemplos além de zero/negativos: 6.0
+FC;valor ausente;1868;univariada;resumo_univariado.csv [FC · ausentes];1868;sim;
+FC;valor não numérico;16;univariada;resumo_univariado.csv [FC · nao_numericos];16;sim;170-150, 92-100, 200-300, 140-150, 80-90, 50-100, 156 a 168, 65-100
+FC;fora da faixa plausível [40–220] (inclui zeros e negativos);16;univariada;resumo_univariado.csv [FC · fora_faixa_clinica];16;sim;exemplos além de zero/negativos: 8.0, 10.0, 12.0, 230.0, 300.0, 780.0, 801.0, 900.0
+Peso/Altura;peso e altura ambos zerados;2500;consistencia;;;—;
+FC;FC digitada como intervalo (ex.: '80-90');16;inspecao;;;—;170-150, 92-100, 200-300, 140-150, 80-90, 50-100, 156 a 168, 65-100, 140-160, 120-180, 60-100, 140-200, 140-120, 66-80, 120-160
+PA SISTOLICA/PA DIASTOLICA;diastólica maior ou igual à sistólica;1;consistencia;;;—;80.0/80.0
+Atendimento;data ausente;983;univariada;resumo_univariado.csv [Atendimento · ausentes];983;sim;
+Atendimento;data não parseável como dd/mm/aa;312;univariada;resumo_univariado.csv [Atendimento · nao_parseaveis];312;sim;
+Atendimento;número serial do Excel no lugar da data;312;inspecao;;;—;"ex.: 38574, 38185, 38338 → 10/08/2005, 17/07/2004, 17/12/2004; convertidas entre 1967 e 2010"
+Atendimento;ano > 2010 (fora do período de coleta);2;univariada;resumo_univariado.csv [Atendimento · datas_futuras];2;sim;25/06/23, 22/08/66
+DN;data ausente;1376;univariada;resumo_univariado.csv [DN · ausentes];1376;sim;
+DN;data não parseável como dd/mm/aa;244;univariada;resumo_univariado.csv [DN · nao_parseaveis];244;sim;
+DN;número serial do Excel no lugar da data;124;inspecao;;;—;"ex.: 35975, 38035, 37861 → 29/06/1998, 18/02/2004, 28/08/2003; convertidas entre 1983 e 2010"
+DN;texto livre ou data malformada (irrecuperável);120;inspecao;;;—;8anos/e/3/m, 25/06/996, 18/04/200, 26/010/99, 4/anos, 10/06/97arritmia, 07/05/096, 11/0503
+DN;ano > 2010 (século trocado pela leitura de 2 dígitos);12;univariada;resumo_univariado.csv [DN · datas_futuras];12;sim;01/03/55, 15/07/65, 09/04/68, 06/07/68, 09/07/22, 31/05/40, 27/02/68, 24/11/36
+DN;nascimento no futuro: século corrigido (−100 anos);12;inspecao;;;—;"anos 1922–1968 após a correção; idade no atendimento 36–87 anos (adultos)"
+Atendimento/DN;nascimento posterior ao atendimento;71;consistencia;;;—;
+IDADE;IDADE difere da calculada pelas datas em mais de 0,1 ano;6796;consistencia;;;—;"de 11327 comparáveis; IDADE/(Atendimento−DN) mediana = 1.038 (valor informado sistematicamente inflado)"
+IDADE;IDADE informada sem as duas datas (não recalculável);50;consistencia;;;—;
+IDADE;idade calculada negativa (datas invertidas);71;consistencia;;;—;
+IDADE;idade calculada ≥ 20 anos (fora da população de 0 a 19 anos);65;consistencia;;;—;
+IDADE;IDADE informada > 19 anos;94;consistencia;;;—;"recalculada pelas datas: 30 caem em 0–19 anos e ficam; 63 são adultos e saem"
+IMC;IMC difere de peso/altura² em mais de 1 kg/m²;1;consistencia;;;—;"de 8031 comparáveis; o IMC informado é arredondado para inteiro"
+IMC;IMC informado com peso ou altura inválidos (não verificável);115;consistencia;;;—;
+IDADE;peso e altura coerentes entre si, mas implausíveis para a idade;85;consistencia;;;—;ambos fora dos limites da OMS no mesmo sentido, com IMC plausível: o erro está nas datas
+Peso;implausível para idade e sexo (OMS: z de peso/idade < −6 ou > +5);60;consistencia;;;—;"escore-z validado contra as tabelas da OMS (erro máx. 0.001); abaixo de 1 ano só o limite superior (prematuros)"
+Altura;implausível para idade e sexo (OMS: z de altura/idade < −6 ou > +6);74;consistencia;;;—;"escore-z validado contra as tabelas da OMS (erro máx. 0.001); abaixo de 1 ano só o limite superior (prematuros)"
+IMC;implausível para idade e sexo (OMS: z de IMC/idade < −5 ou > +5);40;consistencia;;;—;"escore-z validado contra as tabelas da OMS (erro máx. 0.001); abaixo de 1 ano só o limite superior (prematuros)"
+PPA;erro de fórmula do Excel '#VALUE!';1496;univariada;frequencias_categoricas.csv [PPA · #VALUE!];1496;sim;
+PPA;'#VALUE!' exatamente nos registros sem IDADE;1496;consistencia;;;—;IDADE ausente em 1496 registros
+PPA;'Não Calculado' (sem classe de pressão);9081;univariada;frequencias_categoricas.csv [PPA · Não Calculado];9081;sim;
+PPA;'Não Calculado' com PAS ou PAD ausente;6596;consistencia;;;—;
+PULSOS;valor ausente;1194;univariada;resumo_univariado.csv [PULSOS · ausentes];1194;sim;9,3% dos registros
+PPA;valor ausente;217;univariada;resumo_univariado.csv [PPA · ausentes];217;sim;1,7% dos registros
+B2;valor ausente;1178;univariada;resumo_univariado.csv [B2 · ausentes];1178;sim;9,2% dos registros
+SOPRO;valor ausente;1167;univariada;resumo_univariado.csv [SOPRO · ausentes];1167;sim;9,1% dos registros
+HDA 1;valor ausente;4270;univariada;resumo_univariado.csv [HDA 1 · ausentes];4270;sim;33,2% dos registros
+HDA2;valor ausente;12466;univariada;resumo_univariado.csv [HDA2 · ausentes];12466;sim;96,8% dos registros
+SEXO;valor ausente;4;univariada;resumo_univariado.csv [SEXO · ausentes];4;sim;0,0% dos registros
+MOTIVO1;valor ausente;1055;univariada;resumo_univariado.csv [MOTIVO1 · ausentes];1055;sim;8,2% dos registros
+MOTIVO2;valor ausente;3496;univariada;resumo_univariado.csv [MOTIVO2 · ausentes];3496;sim;27,2% dos registros
+Convenio;valor ausente;4108;univariada;resumo_univariado.csv [Convenio · ausentes];4108;sim;31,9% dos registros
+PULSOS;categorias distintas nos dados brutos;7;univariada;resumo_univariado.csv [PULSOS · categorias_distintas];7;sim;
+PULSOS;registros com variante de grafia (caixa/acento/pontuação);3;consistencia;;;—;"7 → 5 categorias após unificar; ex.: NORMAIS, AMPLOS"
+SOPRO;categorias distintas nos dados brutos;7;univariada;resumo_univariado.csv [SOPRO · categorias_distintas];7;sim;
+SOPRO;registros com variante de grafia (caixa/acento/pontuação);743;consistencia;;;—;"7 → 5 categorias após unificar; ex.: sistólico, Contínuo"
+Convenio;categorias distintas nos dados brutos;374;univariada;resumo_univariado.csv [Convenio · categorias_distintas];374;sim;
+Convenio;registros com variante de grafia (caixa/acento/pontuação);1122;consistencia;;;—;"374 → 243 categorias após unificar; ex.: Grupo, PART, Ideal, Fusex, Real S., Viva"
+SEXO;categorias distintas nos dados brutos;6;univariada;resumo_univariado.csv [SEXO · categorias_distintas];6;sim;M, F, Indeterminado, Masculino, Feminino, masculino
+SEXO;rótulo por extenso no lugar de M/F;910;inspecao;;;—;
+SEXO;'Indeterminado' (sexo não informado);1417;univariada;frequencias_categoricas.csv [SEXO · Indeterminado];1417;sim;748 deles também sem alvo
+SEXO;rótulo fora do mapa conhecido;0;inspecao;;;—;
+NORMAL X ANORMAL;rótulo fora do padrão Normal/Anormal;2;inspecao;;;—;anormal, Normais
