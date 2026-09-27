@@ -1,0 +1,8 @@
+idade_min_anos,idade_max_anos,fc_min,fc_max,faixa,fonte
+0,0.0834,70,190,recem-nascido (0 a 1 mes),"MedlinePlus (NIH), Pulse: normal resting heart rates by age; AHA"
+0.0834,1,80,160,lactente (1 a 11 meses),"MedlinePlus (NIH); AHA"
+1,3,80,130,1 a 2 anos,"MedlinePlus (NIH); AHA"
+3,5,80,120,3 a 4 anos,"MedlinePlus (NIH); AHA"
+5,7,75,115,5 a 6 anos,"MedlinePlus (NIH); AHA"
+7,10,70,110,7 a 9 anos,"MedlinePlus (NIH); AHA"
+10,20,60,100,10 anos ou mais,"MedlinePlus (NIH); AHA"

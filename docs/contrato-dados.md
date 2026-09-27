@@ -11,7 +11,7 @@ Define a interface entre `02_limpeza.py` e `04_transformacoes.py`, para que as d
 | Padronização de grafia e caixa | Construção de atributos (classes clínicas de PA, IMC e FC; faixa etária; indicadores derivados) |
 | Valores inválidos e sentinelas (0, negativos, fora de faixa) → NaN | Eliminação de atributos irrelevantes ou redundantes |
 | Correção de datas e recálculo de colunas derivadas já existentes (`idade`, `imc`) | Discretização e codificação |
-| Remoção de registros sem alvo | Escala (normalização/padronização) |
+| Remoção de registros sem alvo e de registros fora da população (idade recalculada > 19 anos: são adultos coerentes em peso/altura, não erro de valor) | Escala (normalização/padronização) |
 | Registro das decisões tomadas | Split treino/teste e pipeline ajustado apenas no treino |
 
 ## Interface

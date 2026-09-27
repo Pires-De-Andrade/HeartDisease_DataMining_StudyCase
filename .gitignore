@@ -26,3 +26,8 @@ Thumbs.db
 # Assistentes de IA
 .claude/
 .codex/
+
+# Dados derivados regeneráveis por scripts/04_transformacoes.py
+data/processed/preprocessor.joblib
+data/processed/X_train.csv
+data/processed/X_test.csv
