@@ -18,6 +18,10 @@ Duas camadas, separadas pela regra "modelar no treino, aplicar no teste":
      -> ColumnTransformer ajustado SOMENTE no treino (80/20 estratificado,
         random_state=42) e serializado -> data/processed/preprocessor.joblib
         + X_train.csv / X_test.csv / split_indices.csv
+     Ficam fora da matriz de modelagem, mas dentro do UCMF_features.csv
+     (SO_ANALISE): pa_sistolica e pa_diastolica (> 50% ausentes, efeito
+     desprezivel na bivariada), sopro_presente (redundante com o one-hot de
+     sopro) e n_queixas (sem associacao com o alvo).
 
 Saidas para o relatorio: output/tabelas/transformacoes.csv (tabela-sintese),
 output/tabelas/cobertura.csv, output/tabelas/validacao_ppa.csv (PPA original x
@@ -41,8 +45,9 @@ from sklearn.preprocessing import (FunctionTransformer, OneHotEncoder,
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import clinico  # noqa: E402
+from transformadores import ImputadorPorFaixa  # noqa: E402
 from viz_theme import (apply_theme, strip_axes, figure_caption,   # noqa: E402
-                       PRIMARY, CRITICAL, ABSENT, INK, INK_2, MUTED, SERIES)
+                       PRIMARY, ABSENT, INK, INK_2)
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLEAN = os.path.join(BASE, "data", "processed", "UCMF_clean.csv")
@@ -70,44 +75,56 @@ MAPA_PPA = {"normal": "normal",
 # -------------------------------------------------------------------------
 ELIMINAR = {
     "id":          "identificador; sem poder preditivo",
-    "convenio":    "sem relacao com o diagnostico; 32% ausente; centenas de grafias",
-    "hda2":        "97% ausente (acima do limite de 50%); informacao preservada em n_queixas",
+    "convenio":    "sem relacao com o diagnostico; 28% ausente; 236 grafias apos a limpeza",
+    "hda2":        "97% ausente (acima do limite de 50%)",
     "ppa":         "82% inutilizavel na origem; substituida por pa_classe reconstruida",
     "imc":         "derivado de peso e altura (redundante); mantida a classe por percentil",
     "atendimento": "usada apenas para recalcular a idade",
     "dn":          "usada apenas para recalcular a idade",
 }
-NUMERICAS_LOG = ["peso", "fc"]                       # assimetria a direita
-NUMERICAS = ["idade", "altura", "pa_sistolica", "pa_diastolica"]
-ORDINAIS = {"faixa_etaria": clinico.ORDEM_FAIXA, "imc_classe": clinico.ORDEM_IMC,
+# ficam no UCMF_features.csv (analise), mas fora da matriz de modelagem
+SO_ANALISE = {
+    "pa_sistolica":  "56% ausente (> 50%); efeito desprezivel na bivariada; pa_classe carrega a informacao",
+    "pa_diastolica": "56% ausente (> 50%); efeito desprezivel na bivariada; pa_classe carrega a informacao",
+    "sopro_presente": "redundante com a coluna sopro_ausente do one-hot (colinearidade perfeita)",
+    "n_queixas":     "sem associacao com o alvo na bivariada (p = 0,25)",
+}
+FAIXA = "faixa_etaria"
+NUMERICAS_LOG = ["peso", "fc"]           # assimetria a direita; imputadas pela mediana da faixa etaria
+NUMERICAS_FAIXA = ["altura"]             # imputada pela mediana da faixa etaria
+NUMERICAS = ["idade"]                    # imputada pela mediana global
+ORDINAIS = {FAIXA: clinico.ORDEM_FAIXA, "imc_classe": clinico.ORDEM_IMC,
             "pa_classe": clinico.ORDEM_PA, "fc_classe": clinico.ORDEM_FC}
 NOMINAIS = ["sexo", "pulsos", "b2", "sopro", "hda1", "motivo1", "motivo2"]
-BINARIAS = ["sopro_presente", "n_queixas"]
-MIN_FREQ = 30                                        # agrega categorias raras
+MIN_FREQ = 30                            # agrega categorias raras
 
 SINTESE = [
     ("id, convenio, hda2, ppa, imc, atendimento, dn", "Reducao", "Eliminacao manual",
      "irrelevantes ao diagnostico, > 50% ausentes, derivados com erro ou ja utilizados"),
+    (", ".join(SO_ANALISE), "Reducao", "mantidas na base analitica; fora da matriz de modelagem",
+     "PAS/PAD > 50% ausentes e sem efeito; sopro_presente redundante com o one-hot; n_queixas sem associacao"),
     ("faixa_etaria", "Criacao + discretizacao", "faixas clinicas (lactente, pre-escolar, escolar, adolescente)",
      "fisiologia e valores de referencia mudam por faixa; cortes definidos pelo usuario"),
     ("imc_classe", "Criacao + discretizacao", "percentil de IMC para idade e sexo (CDC): p5 / p85 / p95",
      "IMC absoluto nao tem significado sem idade e sexo; obesidade e fator de risco"),
     ("pa_classe", "Criacao + discretizacao", "reconstrucao da PPA: NHBPEP 2004 por sexo x idade x percentil de altura, criterio PAS ou PAD",
-     "PPA original 82% inutilizavel; mesma tabela clinica da origem"),
-    ("fc_classe", "Criacao + discretizacao", "faixas de FC por idade (AHA PALS 2020)",
-     "FC normal varia de 60 a 205 bpm conforme a idade"),
+     "PPA original 82% inutilizavel; mesma tabela clinica da origem; associacao fraca com o alvo, mantida pela interpretabilidade"),
+    ("fc_classe", "Criacao + discretizacao", "faixas de FC de repouso por idade (MedlinePlus/AHA)",
+     "FC normal varia de 60 a 190 bpm conforme a idade"),
     ("sopro_presente, n_queixas", "Criacao", "binario / contagem",
-     "sinais simples e fortes para o alvo; recuperam hda2 antes da eliminacao"),
+     "construidos para a analise; nao entram na modelagem (ver Reducao)"),
     (ALVO, "Codificacao", "label: Normal = 0, Anormal = 1", "alvo binario; positivo = doenca"),
     (", ".join(ORDINAIS), "Codificacao", "ordinal (nao avaliavel = -1)", "ordem clinica real; preserva monotonicidade"),
     (", ".join(NOMINAIS), "Codificacao", f"one-hot (categorias com n < {MIN_FREQ} agregadas)",
      "nominais sem ordem e de baixa cardinalidade"),
-    (", ".join(NUMERICAS_LOG), "Numerica", "log1p -> imputacao (mediana) -> z-score",
-     "assimetria a direita; outliers residuais"),
-    (", ".join(NUMERICAS), "Numerica", "imputacao (mediana) -> z-score",
-     "escalas distintas; algoritmos baseados em distancia ou gradiente"),
+    (", ".join(NUMERICAS_LOG), "Numerica", "imputacao pela mediana da faixa etaria -> log1p -> z-score",
+     "assimetria a direita; valor tipico depende da idade"),
+    (", ".join(NUMERICAS_FAIXA), "Numerica", "imputacao pela mediana da faixa etaria -> z-score",
+     "31% ausente; mediana global daria 99 cm a um lactente"),
+    (", ".join(NUMERICAS), "Numerica", "imputacao pela mediana -> z-score",
+     "escala distinta; algoritmos baseados em distancia ou gradiente"),
     (ALVO, "Balanceamento", "sem reamostragem; class_weight e metricas por classe na modelagem",
-     "desbalanceamento leve (~58/42); classe minoritaria e a clinicamente importante"),
+     "desbalanceamento leve (57/43); classe minoritaria e a clinicamente importante"),
     ("todas as estatisticas", "Regra", "ajuste no treino (80/20 estratificado, seed 42), aplicacao no teste",
      "evitar vazamento de informacao do teste para o treino"),
 ]
@@ -172,11 +189,13 @@ def validar_ppa(df):
 # CAMADA B - estatistica (ajustada so no treino)
 # =========================================================================
 def montar_preprocessador():
+    num_log = Pipeline([("imputar", ImputadorPorFaixa(grupo=FAIXA)),
+                        ("log", FunctionTransformer(np.log1p, feature_names_out="one-to-one")),
+                        ("escalar", StandardScaler())])
+    num_faixa = Pipeline([("imputar", ImputadorPorFaixa(grupo=FAIXA)),
+                          ("escalar", StandardScaler())])
     num = Pipeline([("imputar", SimpleImputer(strategy="median")),
                     ("escalar", StandardScaler())])
-    num_log = Pipeline([("log", FunctionTransformer(np.log1p, feature_names_out="one-to-one")),
-                        ("imputar", SimpleImputer(strategy="median")),
-                        ("escalar", StandardScaler())])
     ordinal = OrdinalEncoder(categories=list(ORDINAIS.values()),
                              handle_unknown="use_encoded_value", unknown_value=-1,
                              encoded_missing_value=-1)
@@ -184,11 +203,11 @@ def montar_preprocessador():
                         ("onehot", OneHotEncoder(handle_unknown="infrequent_if_exist",
                                                  min_frequency=MIN_FREQ, sparse_output=False))])
     return ColumnTransformer([
+        ("num_log", num_log, NUMERICAS_LOG + [FAIXA]),
+        ("num_faixa", num_faixa, NUMERICAS_FAIXA + [FAIXA]),
         ("num", num, NUMERICAS),
-        ("num_log", num_log, NUMERICAS_LOG),
         ("ord", ordinal, list(ORDINAIS)),
         ("nom", nominal, NOMINAIS),
-        ("bin", "passthrough", BINARIAS),
     ], verbose_feature_names_out=False)
 
 
@@ -266,7 +285,7 @@ def main():
     print(f"[ok] UCMF_features.csv: {features.shape[0]} x {features.shape[1]}")
 
     # --- camada B ---------------------------------------------------------
-    X = features.drop(columns=["id", ALVO])
+    X = features.drop(columns=["id", ALVO] + list(SO_ANALISE))
     y = features[ALVO]
     X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=TESTE, stratify=y, random_state=SEED)
 

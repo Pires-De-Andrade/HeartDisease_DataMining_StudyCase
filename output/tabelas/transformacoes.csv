@@ -1,14 +1,16 @@
 ﻿atributo;frente;transformacao;justificativa
 id, convenio, hda2, ppa, imc, atendimento, dn;Reducao;Eliminacao manual;irrelevantes ao diagnostico, > 50% ausentes, derivados com erro ou ja utilizados
+pa_sistolica, pa_diastolica, sopro_presente, n_queixas;Reducao;"mantidas na base analitica; fora da matriz de modelagem";"PAS/PAD > 50% ausentes e sem efeito; sopro_presente redundante com o one-hot; n_queixas sem associacao"
 faixa_etaria;Criacao + discretizacao;faixas clinicas (lactente, pre-escolar, escolar, adolescente);"fisiologia e valores de referencia mudam por faixa; cortes definidos pelo usuario"
 imc_classe;Criacao + discretizacao;percentil de IMC para idade e sexo (CDC): p5 / p85 / p95;"IMC absoluto nao tem significado sem idade e sexo; obesidade e fator de risco"
-pa_classe;Criacao + discretizacao;reconstrucao da PPA: NHBPEP 2004 por sexo x idade x percentil de altura, criterio PAS ou PAD;"PPA original 82% inutilizavel; mesma tabela clinica da origem"
-fc_classe;Criacao + discretizacao;faixas de FC por idade (AHA PALS 2020);FC normal varia de 60 a 205 bpm conforme a idade
-sopro_presente, n_queixas;Criacao;binario / contagem;"sinais simples e fortes para o alvo; recuperam hda2 antes da eliminacao"
+pa_classe;Criacao + discretizacao;reconstrucao da PPA: NHBPEP 2004 por sexo x idade x percentil de altura, criterio PAS ou PAD;"PPA original 82% inutilizavel; mesma tabela clinica da origem; associacao fraca com o alvo, mantida pela interpretabilidade"
+fc_classe;Criacao + discretizacao;faixas de FC de repouso por idade (MedlinePlus/AHA);FC normal varia de 60 a 190 bpm conforme a idade
+sopro_presente, n_queixas;Criacao;binario / contagem;"construidos para a analise; nao entram na modelagem (ver Reducao)"
 normal_x_anormal;Codificacao;label: Normal = 0, Anormal = 1;"alvo binario; positivo = doenca"
 faixa_etaria, imc_classe, pa_classe, fc_classe;Codificacao;ordinal (nao avaliavel = -1);"ordem clinica real; preserva monotonicidade"
 sexo, pulsos, b2, sopro, hda1, motivo1, motivo2;Codificacao;one-hot (categorias com n < 30 agregadas);nominais sem ordem e de baixa cardinalidade
-peso, fc;Numerica;log1p -> imputacao (mediana) -> z-score;"assimetria a direita; outliers residuais"
-idade, altura, pa_sistolica, pa_diastolica;Numerica;imputacao (mediana) -> z-score;"escalas distintas; algoritmos baseados em distancia ou gradiente"
-normal_x_anormal;Balanceamento;"sem reamostragem; class_weight e metricas por classe na modelagem";"desbalanceamento leve (~58/42); classe minoritaria e a clinicamente importante"
+peso, fc;Numerica;imputacao pela mediana da faixa etaria -> log1p -> z-score;"assimetria a direita; valor tipico depende da idade"
+altura;Numerica;imputacao pela mediana da faixa etaria -> z-score;"31% ausente; mediana global daria 99 cm a um lactente"
+idade;Numerica;imputacao pela mediana -> z-score;"escala distinta; algoritmos baseados em distancia ou gradiente"
+normal_x_anormal;Balanceamento;"sem reamostragem; class_weight e metricas por classe na modelagem";"desbalanceamento leve (57/43); classe minoritaria e a clinicamente importante"
 todas as estatisticas;Regra;ajuste no treino (80/20 estratificado, seed 42), aplicacao no teste;evitar vazamento de informacao do teste para o treino
