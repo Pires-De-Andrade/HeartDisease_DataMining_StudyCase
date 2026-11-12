@@ -31,3 +31,14 @@ Thumbs.db
 data/processed/preprocessor.joblib
 data/processed/X_train.csv
 data/processed/X_test.csv
+
+# LaTeX (artigo em paper/)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+paper/*.fdb_latexmk
+paper/*.fls
+paper/main.pdf
