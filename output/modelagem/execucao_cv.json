@@ -1,0 +1,10 @@
+{
+  "fase": "cv",
+  "data": "2026-11-14T20:50:34",
+  "commit": "18c87f4fdc2294e02451ea8516838dfbd84fb684",
+  "seed": 42,
+  "n_boot": 1000,
+  "python": "3.13.3",
+  "sklearn": "1.7.1",
+  "pandas": "2.3.1"
+}
