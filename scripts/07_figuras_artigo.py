@@ -8,6 +8,9 @@ Gera as figuras do artigo IEEE em PDF vetorial, no tamanho de impressao
   fig_dados.pdf - (a) % Anormal por achado da ausculta e pelo motivo "sopro"
                   relatado no encaminhamento (vazamento de dados);
                   (b) prevalencia anual de Anormal, 2003-2010 (deriva temporal).
+  fig_resultados.pdf - (uma coluna) (a) AUC-ROC no teste por etapa, split aleatorio
+                  e temporal; (b) importancia por permutacao do GB em E1.
+                  Le output/modelagem/ (rodar 08_modelagem.py --fase teste antes).
 
 Populacao: a principal do artigo (docs/proposta.md, secao 5) - base limpa
 sem MOTIVO1 = "1 - Cardiopatia ja estabelecida".
@@ -21,7 +24,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from viz_theme import apply_theme, strip_axes, PRIMARY, INK, INK_2, MUTED  # noqa: E402
+from viz_theme import apply_theme, strip_axes, PRIMARY, SERIES, INK, INK_2, MUTED  # noqa: E402
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLEAN = os.path.join(BASE, "data", "processed", "UCMF_clean.csv")
@@ -97,7 +100,58 @@ def painel_tempo(ax, df):
     strip_axes(ax)
 
 
+MOD = os.path.join(BASE, "output", "modelagem")
+ROTULOS = {"motivo2": "Motivo do encaminhamento 2", "motivo1": "Motivo do encaminhamento 1",
+           "fc": "Frequência cardíaca", "hda1": "Queixa (HDA)", "peso": "Peso", "idade": "Idade",
+           "sexo": "Sexo", "pa_classe": "Classe de PA", "altura": "Altura", "pulsos": "Pulsos"}
+
+
+def painel_auc(ax):
+    r = pd.read_csv(os.path.join(MOD, "resultados_teste.csv"))
+    r = r[r["metrica"] == "auc_roc"]
+    linhas = [("Só idade", "idade", "idade"), ("E0 · encaminhamento", "GB", "E0"),
+              ("E1 · + medidas", "GB", "E1"), ("E2 · + ausculta (teto)", "GB", "E2")]
+    yy = np.arange(len(linhas))[::-1]
+    for (split, cor, marca, dy) in [("aleatorio", SERIES[0], "o", 0.13), ("temporal", SERIES[1], "s", -0.13)]:
+        v = [r[(r.split == split) & (r.modelo == m) & (r.etapa == e)].iloc[0] for _, m, e in linhas]
+        ax.errorbar([x.valor for x in v], yy + dy,
+                    xerr=[[x.valor - x.ic_inf for x in v], [x.ic_sup - x.valor for x in v]],
+                    fmt=marca, color=cor, markersize=4, elinewidth=1.2, capsize=0,
+                    label="split " + ("aleatório" if split == "aleatorio" else "temporal"))
+    ax.set_yticks(yy)
+    ax.set_yticklabels([rot for rot, _, _ in linhas], color=INK)
+    ax.set_xlim(0.55, 1.0)
+    ax.set_xlabel("AUC-ROC no teste (IC 95%)")
+    ax.set_title("(a) Desempenho por etapa de informação", loc="left")
+    ax.legend(loc="upper right", fontsize=6.5, handletextpad=0.3)
+    strip_axes(ax, keep_y_grid=False, keep_x_grid=True)
+
+
+def painel_importancia(ax, n=8):
+    imp = pd.read_csv(os.path.join(MOD, "importancia_GB_E1.csv")).head(n)
+    yy = np.arange(len(imp))[::-1]
+    ax.barh(yy, imp["queda_auc"], xerr=imp["desvio"], color=PRIMARY, height=0.6,
+            error_kw={"elinewidth": 0.8, "ecolor": INK_2})
+    ax.set_yticks(yy)
+    ax.set_yticklabels([ROTULOS.get(a, a) for a in imp["atributo"]], color=INK)
+    ax.set_xlabel("Queda da AUC-ROC ao permutar o atributo")
+    ax.set_title("(b) Importância por permutação (GB, E1)", loc="left")
+    strip_axes(ax, keep_y_grid=False, keep_x_grid=True)
+
+
+def fig_resultados():
+    fig, (a, b) = plt.subplots(2, 1, figsize=(3.45, 3.9), gridspec_kw={"hspace": 0.62})
+    painel_auc(a)
+    painel_importancia(b)
+    destino = os.path.join(OUT, "fig_resultados.pdf")
+    fig.savefig(destino, bbox_inches="tight", pad_inches=0.02)
+    fig.savefig(destino.replace(".pdf", ".png"), bbox_inches="tight", pad_inches=0.02, dpi=200)
+    plt.close(fig)
+    print(f"[ok] {os.path.relpath(destino, BASE)}")
+
+
 def main():
+    fig_resultados()
     df = populacao()
     fig, (a, b) = plt.subplots(1, 2, figsize=(LARGURA, 2.0),
                                gridspec_kw={"width_ratios": [1.35, 1], "wspace": 0.55})

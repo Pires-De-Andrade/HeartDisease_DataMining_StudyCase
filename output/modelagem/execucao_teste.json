@@ -1,0 +1,10 @@
+{
+  "fase": "teste",
+  "data": "2026-11-14T21:21:56",
+  "commit": "49bbbbb6def244375319ee0b503125b514007c28",
+  "seed": 42,
+  "n_boot": 1000,
+  "python": "3.13.3",
+  "sklearn": "1.7.1",
+  "pandas": "2.3.1"
+}

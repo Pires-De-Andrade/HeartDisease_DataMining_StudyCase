@@ -153,8 +153,19 @@ no teste; análise dos erros por faixa etária.
 
 ## 8. Desvios do protocolo
 
-*(Nenhum até o momento. Registrar aqui: data, o que mudou, por quê, e se foi antes ou depois de
-ver o teste.)*
+*(Registrar aqui: data, o que mudou, por quê, e se foi antes ou depois de ver o teste.)*
+
+- **14/11/2026, antes do teste: grade do gradient boosting mantida (ressalva).** Na validação
+  cruzada, a melhor combinação ficou no limite inferior da grade (`learning_rate = 0,03`,
+  `max_leaf_nodes = 15`). As quatro melhores combinações diferem em menos de 0,002 de AUC.
+  O grupo decidiu manter a grade pré-registrada. Entra como limitação no artigo.
+- **14/11/2026, depois do teste: a ablação do motivo "sopro" é inconclusiva (falha de desenho).**
+  - Todos os 2.247 encaminhamentos com `MOTIVO2 = "6 - Sopro"` têm
+    `MOTIVO1 = "6 - Suspeita de cardiopatia"`.
+  - A recodificação para ausente deixa esses registros identificáveis pela combinação
+    "suspeita + MOTIVO2 ausente", que tem só 57 registros fora deles.
+  - Por isso, a diferença E0 − E0⁻ (≤ 0,007) não mede a dependência do motivo.
+  - Nenhum novo experimento foi rodado. O artigo relata a ablação como inconclusiva.
 
 ---
 
