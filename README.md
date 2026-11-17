@@ -27,22 +27,29 @@ No ponto de corte de triagem, priorizar 60% da fila captura 81% das cardiopatias
 o protocolo foram registrados antes do teste, em [docs/proposta.md](docs/proposta.md). Os desvios
 do protocolo estão na seção 8 desse documento.
 
+**Pré-registro e histórico.** Este repositório é uma cópia pública do repositório de trabalho do
+grupo. O histórico foi filtrado para remover os dados e o texto do relatório, mas a ordem e as
+datas dos commits foram preservadas. O commit `49bbbbb` registrado em
+`output/modelagem/execucao_*.json` corresponde aqui ao commit `42c61be` ("scripts de modelagem",
+14/11/2026). Ele fixou a grade e os pontos de corte antes da avaliação no teste, que vem no commit
+seguinte.
+
 ## Estrutura
 
 | Pasta | Conteúdo |
 |---|---|
-| `UCMF_raw.csv` | Base original |
-| `data/processed/` | Base limpa (`UCMF_clean.csv`) e atributos clínicos (`UCMF_features.csv`) |
+| `data/processed/` | Gerada pelos scripts (não versionada): base limpa e atributos clínicos |
 | `data/referencias/oms/`, `scripts/referencias/` | Tabelas clínicas: OMS, CDC, NHBPEP e faixas de FC |
 | `scripts/` | Pipeline numerada (abaixo) e módulos auxiliares (`clinico.py`, `transformadores.py`, ...) |
 | `output/` | Tabelas e figuras geradas. Os resultados do artigo estão em `output/modelagem/` |
-| `paper/` | Artigo em LaTeX (IEEEtran). Veja `paper/README.md` |
 | `docs/proposta.md` | Pergunta, hipóteses e protocolo pré-registrados |
 | `tests/` | Testes das funções clínicas |
 
 ## Como reproduzir
 
-Requer Python 3.11 ou mais recente. Todos os comandos são executados na raiz do repositório.
+**Os dados não são públicos.** Para reproduzir, coloque o arquivo `UCMF_raw.csv` na raiz do
+repositório; `data/processed/` é gerado pelos scripts. Os resultados foram obtidos com Python
+3.13, scikit-learn 1.7 e pandas 2.3. Todos os comandos são executados na raiz.
 
 ```bash
 pip install -r requirements.txt
@@ -57,7 +64,7 @@ python scripts/03_analise_bivariada.py
 # Modelagem (A2): duas fases, como no protocolo
 python scripts/08_modelagem.py --fase cv      # só o treino: grade e pontos de corte
 python scripts/08_modelagem.py --fase teste   # avalia no teste uma única vez
-python scripts/07_figuras_artigo.py           # -> paper/figures/
+python scripts/07_figuras_artigo.py           # figuras do relatório -> paper/figures/
 ```
 
 Observações:
@@ -77,4 +84,4 @@ Observações:
 
 O código e a primeira versão do texto foram escritos com o apoio do Claude (Anthropic), por meio
 do Claude Code. A pergunta, as hipóteses, as decisões metodológicas e a revisão foram do grupo.
-Os detalhes estão na seção final do artigo.
+Os detalhes estão no relatório técnico entregue à disciplina.

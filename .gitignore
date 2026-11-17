@@ -42,3 +42,12 @@ paper/*.synctex.gz
 paper/*.fdb_latexmk
 paper/*.fls
 paper/main.pdf
+
+# Dados e material nao publicos
+UCMF_raw.csv
+data/processed/
+related/
+paper/
+paper.zip
+*.pdf
+__pycache__/
