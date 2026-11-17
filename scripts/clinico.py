@@ -99,7 +99,7 @@ def _limiares_pa(sexo, idade, coluna_altura):
     t = _tabela("nhbpep_2004_pa.csv")
     t = t[(t.sexo == sexo) & (t.idade_anos == idade) & (t.percentil_altura == coluna_altura)]
     t = t.set_index("percentil_pa")
-    return tuple((int(t.pas[p]), int(t.pad[p])) for p in (90, 95, 99))
+    return tuple((int(t["pas"][p]), int(t["pad"][p])) for p in (90, 95, 99))  # t.pad é método do pandas
 
 
 def classe_pa(sexo, idade_anos, pas, pad, percentil_altura=None):

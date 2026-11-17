@@ -143,6 +143,8 @@ def fig_resultados():
     fig, (a, b) = plt.subplots(2, 1, figsize=(3.45, 3.9), gridspec_kw={"hspace": 0.62})
     painel_auc(a)
     painel_importancia(b)
+    for ax in (a, b):  # vírgula decimal, como no texto
+        ax.xaxis.set_major_formatter(lambda x, _: f"{x:g}".replace(".", ","))
     destino = os.path.join(OUT, "fig_resultados.pdf")
     fig.savefig(destino, bbox_inches="tight", pad_inches=0.02)
     fig.savefig(destino.replace(".pdf", ".png"), bbox_inches="tight", pad_inches=0.02, dpi=200)
